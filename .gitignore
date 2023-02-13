@@ -2,4 +2,3 @@ IAC_terraform/.terraform
 IAC_terraform/.terraform.lock.hcl
 IAC_terraform/terraform.tfstate
 IAC_terraform/terraform.tfstate.backup
-IAC_terraform/.terraform.tfstate.lock.info
