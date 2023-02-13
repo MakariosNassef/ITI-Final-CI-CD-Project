@@ -1,5 +1,5 @@
-terraform/.terraform
-terraform/.terraform.lock.hcl
-terraform/terraform.tfstate
-terraform/terraform.tfstate.backup
-terraform/.terraform.tfstate.lock.info
+IAC_terraform/.terraform
+IAC_terraform/.terraform.lock.hcl
+IAC_terraform/terraform.tfstate
+IAC_terraform/terraform.tfstate.backup
+IAC_terraform/.terraform.tfstate.lock.info
