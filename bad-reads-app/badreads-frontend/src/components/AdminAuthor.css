@@ -1,0 +1,39 @@
+.update{
+    background-color: #4CAF50;
+    border-radius: 12px;
+margin: 10px;
+color: white;
+font-weight: bold;
+box-sizing: none;
+padding:  5px;
+font-size: 20px;
+border: 1px solid#4CAF50;
+margin-left: 10%;
+}
+.delete{
+    background-color: red;
+    border-radius: 12px;
+margin: 10px;
+color: white;
+font-weight: bold;
+box-sizing: none;
+padding: 5px;
+font-size: 20px;
+border: 1px solid red;
+/* margin-left: 20%; */
+
+
+
+}
+
+.add{
+    background-color: #008CBA;;
+    border-radius: 12px;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+  box-sizing: none;
+  padding:  5px;
+  font-size: 20px;
+  margin-left: 81%;
+  }

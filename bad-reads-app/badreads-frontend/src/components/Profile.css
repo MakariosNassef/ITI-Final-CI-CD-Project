@@ -1,0 +1,93 @@
+.sidenav {
+    height: 100%;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #C5C9B8;
+    overflow-x: hidden;
+    padding-top: 20px;
+    float: left;
+    
+    
+}
+
+.parent {
+    height: fit-content;
+    background-color: #C5C9B8;
+}
+
+/* .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+} */
+
+/* .sidenav a:hover {
+    color: #f1f1f1;
+} */
+
+.main {
+    margin-left: 160px;
+    /* Same as the width of the sidenav */
+    font-size: 28px;
+    /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+
+
+.navul {
+	list-style-type: none;
+    padding: 0;
+    
+}
+
+.navulli {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 45px; font-style: normal; font-variant: small-caps; font-weight: 800;
+	width: 5em;
+	height: 1.5em;
+	line-height: 1.5em;
+	position: relative;
+	overflow: hidden;
+	margin: 0.5em;
+    cursor: pointer;
+    
+}
+
+.navullispan {
+	color: white;
+    mix-blend-mode: difference;
+    font-size: 26px;
+    font-weight: 1000;
+}
+
+.navulli::before {
+	content: '';
+	position: absolute;
+	width: 1.5em;
+	height: inherit;
+	background-color: #525644;
+	border-radius: 50%;
+	top: 0;
+	left: -0.75em;
+    transition: 0.5s ease-out;
+}
+
+.navulli:hover::before {
+	transform: scale(7);
+}

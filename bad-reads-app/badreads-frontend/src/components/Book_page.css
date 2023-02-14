@@ -1,0 +1,38 @@
+#bookImg{
+  max-width: 150px;
+}
+
+.book{
+  margin-top: 25px;
+  color: #333333;
+  font-size: 19px;
+}
+
+.book *{
+  margin-top: 8px;
+}
+
+
+.book_title{
+  font-weight: bold;
+}
+
+.by{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.book_author{
+  font-size: 23px;
+  font-weight: 550;
+}
+
+.book_category{
+  font-size: 23px;
+  font-weight: 550;
+}
+
+.book_description{
+  font-size: 21px;
+  font-weight: bold;
+}
