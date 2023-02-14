@@ -29,7 +29,7 @@ resource "aws_subnet" "private_us_east_1a" {
     # set to the value "1", which mean that this Elastic Load Balancer is intended for internal use only within the cluster. 
     "kubernetes.io/role/internal-elb" = "1"
     # set to "owned", which indicate that the cluster named "demo" owns this resource.
-    "kubernetes.io/cluster/demo"      = "owned"
+    "kubernetes.io/cluster/eks"      = "owned"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "private_us_east_1b" {
   tags = {
     "Name"                            = "private-us-east-1b"
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/demo"      = "owned"
+    "kubernetes.io/cluster/eks"      = "owned"
   }
 }
 
@@ -54,7 +54,7 @@ resource "aws_subnet" "public_us_east_1a" {
   tags = {
     "Name"                       = "public-us-east-1a"
     "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned"
+    "kubernetes.io/cluster/eks" = "shared"
   }
 }
 
@@ -67,7 +67,7 @@ resource "aws_subnet" "public_us_east_1b" {
   tags = {
     "Name"                       = "public-us-east-1b"
     "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned"
+    "kubernetes.io/cluster/eks" = "shared"
   }
 }
 

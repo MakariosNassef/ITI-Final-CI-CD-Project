@@ -26,12 +26,12 @@ kind: Service
 metadata:
   name: jenkins-master-svc
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: jenkins
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30080
+      #nodePort: 30080
 ---
 
