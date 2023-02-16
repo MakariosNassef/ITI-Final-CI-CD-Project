@@ -27,7 +27,7 @@ class AdminCateUpdate extends Component
         var aformData = new FormData();
         aformData.append("categoryName",this.state.categoryName)
         aformData.append("categoryDescription",this.categoryDescription)
-        axios.patch('http://localhost:4000/admin/category/'+this.props.location.state.details._id,{categoryName:this.state.categoryName,  categoryDescription:this.state.categoryDescription}
+        axios.patch('http://172.18.0.2:31910/admin/category/'+this.props.location.state.details._id,{categoryName:this.state.categoryName,  categoryDescription:this.state.categoryDescription}
         ).then(response => {
             this.props.history.push('/admin/category/')
           }).catch(error => {

@@ -14,7 +14,7 @@ export default class UsersId extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id
-        axios.get(`http://localhost:4000/author/${id}`)
+        axios.get(`http://172.18.0.2:31910/author/${id}`)
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -22,7 +22,7 @@ export default class UsersId extends Component {
                 console.log(error);
             })
 
-        axios.get(`http://localhost:4000/author/book/${id}`)
+        axios.get(`http://172.18.0.2:31910/author/book/${id}`)
             .then(res => {
                 this.setState({ books: res.data });
             })

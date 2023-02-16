@@ -20,7 +20,7 @@ const verifyUser = () =>{
   var token = getToken();   
     if(token){
       var token = getToken(); 
-    axios.get(`http://localhost:4000/login/verifyToken?token=${token}`)
+    axios.get(`http://172.18.0.2:31910/login/verifyToken?token=${token}`)
     .then(response => {
       }).catch(error => {
         removeUserSession();

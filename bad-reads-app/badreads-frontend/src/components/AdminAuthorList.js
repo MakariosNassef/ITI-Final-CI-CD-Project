@@ -24,7 +24,7 @@ componentDidMount(){
 }
 
 updateView = () =>{
-  axios.get("http://localhost:4000/admin/author")
+  axios.get("http://172.18.0.2:31910/admin/author")
      .then(res=>{
        const data = res.data;
        this.setState({authors:data})
@@ -49,7 +49,7 @@ bookpath=()=>{
 }
 
   handledeleteauthor=(index)=>{
-    axios.delete("http://localhost:4000/admin/author/"+this.state.authors[index]._id)
+    axios.delete("http://172.18.0.2:31910/admin/author/"+this.state.authors[index]._id)
     .then(res=>{
       this.updateView()
       this.props.history.push("/admin/author/")

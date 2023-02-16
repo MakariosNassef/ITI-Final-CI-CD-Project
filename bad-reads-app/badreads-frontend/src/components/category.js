@@ -13,7 +13,7 @@ export default class Category extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/category')
+        axios.get('http://172.18.0.2:31910/category')
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })

@@ -40,7 +40,7 @@ class AdminAuthorUpdate extends Component
         aformData.append("authorInfo",this.state.authorInfo)
         aformData.append("date_of_birth",this.state.date_of_birth)
         if(this.state.img) aformData.append("img",this.state.img)
-        axios.patch('http://localhost:4000/admin/author/'+this.props.location.state.details._id, aformData,{
+        axios.patch('http://172.18.0.2:31910/admin/author/'+this.props.location.state.details._id, aformData,{
           headers: {
             'Content-Type': 'multipart/form-data'
           }

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: makar007/frontend:001
+        image: makar007/frontend:004
         imagePullPolicy: Always        
         ports:
         - containerPort: 3000

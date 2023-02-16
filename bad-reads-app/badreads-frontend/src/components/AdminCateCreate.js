@@ -23,7 +23,7 @@ handleCate = () => {
   var aformData = new FormData();
   aformData.append("categoryName",this.state.categoryName)
   aformData.append("categoryDescription",this.state.categoryDescription)
-  axios.post('http://localhost:4000/admin/category', {categoryName:this.state.categoryName,  categoryDescription:this.state.categoryDescription}
+  axios.post('http://172.18.0.2:31910/admin/category', {categoryName:this.state.categoryName,  categoryDescription:this.state.categoryDescription}
   ).then(response => {
       this.props.history.push('/admin/category/')
     }).catch(error => {

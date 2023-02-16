@@ -25,7 +25,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/home/category')
+        axios.get('http://172.18.0.2:31910/home/category')
             .then(res => {
                 this.setState({
                     categoryCollection: res.data.sort( () => Math.random() - 0.5).slice(0, 5)
@@ -35,7 +35,7 @@ export default class Home extends Component {
                 console.log(error);
             })
 
-        axios.get('http://localhost:4000/home/author')
+        axios.get('http://172.18.0.2:31910/home/author')
             .then(res => {
                 this.setState({
                     authorCollection: res.data.sort( () => Math.random() - 0.5).slice(0, 5)
@@ -45,7 +45,7 @@ export default class Home extends Component {
                 console.log(error);
             })
 
-        axios.get('http://localhost:4000/home/book')
+        axios.get('http://172.18.0.2:31910/home/book')
             .then(res => {
                 this.setState({
                     bookCollection: res.data.sort( () => Math.random() - 0.5).slice(0, 5)
