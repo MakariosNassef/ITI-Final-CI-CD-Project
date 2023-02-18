@@ -1,44 +1,74 @@
-pipeline {
-    agent any
-    stages {
-        stage('Clone repository') {
-            steps {
-                echo 'Cloning repository'
-                git branch: 'master', url: ''
-            }
-        }
+podTemplate(yaml: '''
+    apiVersion: v1
+    kind: Pod
+    spec:
+      serviceAccountName: jenkins-admin
+      containers:
+      - name: maven
+        image: maven:3.8.1-jdk-8
+        command:
+        - sleep
+        args:
+        - 99d
+      - name: deployment 
+        image: portainer/kubectl-shell:latest 
+        command:
+        - sleep
+        args:
+        - 3600
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:debug
+        command:
+        - sleep
+        args:
+        - 9999999
+        volumeMounts:
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
+      restartPolicy: Never
+      volumes:
+      - name: kaniko-secret
+        secret:
+            secretName: dockercred
+            items:
+            - key: .dockerconfigjson
+              path: config.json
+''') {
+  node(POD_LABEL) {
 
-        stage('Build container image') {
-            steps {
-                echo 'Building Docker container image'
-                sh "docker build badreads-frontend/. -t makar007/app:$GIT_COMMIT"
-            }
+    stage('Get a ITI final project by mac') {
+      git url: 'https://github.com/MakariosNassef/ITI-Final-CI-CD-Project.git', branch: 'master' , credentialsId: 'user-github'
+      container('maven') {
+        stage('Build a mac project') {
+          sh '''
+          echo pwd
+          env
+          ls
+          '''
         }
-
-        stage('Push container image to registry') {
-            steps {
-                echo 'Pushing Docker container image to Docker Hub'
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-registry', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
-                    sh "docker push makar007/app:$GIT_COMMIT"
-                }
-            }
-        }
-
-        stage('Update Kubernetes deployment') {
-            steps {
-                echo 'Updating Kubernetes deployment with new container image that in repo'
-                sh "sed -i \"s|image:.*|image: makar007/app:$GIT_COMMIT|g\" kubernetes_manifest_file/deployment_app.yml"
-            }
-        }
-
-        stage('Deploy app to Kubernetes cluster') {
-            steps {
-                echo 'Deploy app to Kubernetes cluster'
-                script{
-                    sh 'kubectl apply -f kubernetes_manifest_file'
-                }
-            }
-        }
+      }
     }
+
+    stage('Build Tornadooooooooooo Image') {
+      container('kaniko') {
+        stage('Build a Tornadooooooooooo project') {
+          sh '''
+            /kaniko/executor --context `pwd`/TornadoaApp/ --destination makar007/tornado:$BUILD_NUMBER
+          '''
+        }
+      }
+    }
+
+    stage('Update Kubernetes deployment and Deploy app to Kubernetes cluster') {
+      container('deployment') {
+        stage('Deployment') {
+            sh '''
+              echo 'Updating Kubernetes deployment with new container image that in repo'
+              sed -i \"s|image:.*|image: makar007/tornado:$BUILD_NUMBER|g\" `pwd`/kubernetes_manifest_file/deployment_app.yml
+              kubectl apply -f `pwd`/kubernetes_manifest_file
+            '''  
+        }
+      }
+    }
+  }
 }

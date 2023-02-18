@@ -26,6 +26,7 @@ spec:
     spec:
       securityContext:
             fsGroup: 1000
+      serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
           image: makar007/jenkins:007

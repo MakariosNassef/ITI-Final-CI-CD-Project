@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Preparation') {
+            steps {
+                echo 'prepare github repo....'
+                git branch: 'main', url: 'https://github.com/MakariosNassef/Dockerizing-a-Node.js-web-app.git'
+            }
+        }
+
+        stage('Deploy to minikube') {
+            steps {
+                echo 'Deploying to minikube'
+                script{
+                    sh 'kubectl apply -f test.yml'}
+            }
+        }
+
+    }
+}
+
+////////////////////////
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Preparation') {
+            steps {
+                echo 'prepare github repo....'
+                git branch: 'main', url: 'https://github.com/MakariosNassef/Dockerizing-a-Node.js-web-app.git'
+            }
+        }
+
+
+
+        stage('Deploy to EKS') {
+            steps {
+                echo 'Deploying to EKS'
+                script {
+                    sh 'kubectl apply -f test.yml'
+                }
+            }
+        }
+    }
+}
+
+
+
