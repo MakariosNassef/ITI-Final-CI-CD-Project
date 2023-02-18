@@ -16,6 +16,7 @@ This project is aimed at deploying a web application on Amazon EKS in AWS using 
 
 ## Project Execution
 ## Part 1: Infrastructure Overview
+![image](https://user-images.githubusercontent.com/28235504/219899730-209ecacc-42cf-47aa-9f0e-0190727bba11.png)
  - 1- The first step is to to build the infrastructure. 
     - To initialize Terraform:
       ``` terraform init ```
