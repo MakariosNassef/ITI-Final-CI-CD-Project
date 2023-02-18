@@ -13,3 +13,7 @@ output "public_us_east_1a_id_output" {
 output "public_us_east_1b_id_output" {
   value = aws_subnet.public_us_east_1b.id
 }
+
+output "vpc_id_output" {
+  value = aws_vpc.main.id
+}

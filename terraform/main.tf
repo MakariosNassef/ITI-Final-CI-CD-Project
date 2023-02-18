@@ -12,5 +12,6 @@ module "cluster_module" {
   private_us_east_1b_id = module.network_module.private_us_east_1b_id_output
   public_us_east_1a_id = module.network_module.public_us_east_1a_id_output
   public_us_east_1b_id = module.network_module.public_us_east_1b_id_output
+  vpc_id = module.network_module.vpc_id_output
 }
 
