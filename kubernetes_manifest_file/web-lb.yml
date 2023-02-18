@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer
+spec:
+  selector:
+    name: my-app
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: LoadBalancer

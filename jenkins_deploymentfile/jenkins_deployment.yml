@@ -1,37 +1,50 @@
 ---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jenkins-pv-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-deployment
-  labels:
-    app: jenkins
+  name: jenkins
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jenkins
+      app: jenkins-server
   template:
     metadata:
       labels:
-        app: jenkins
+        app: jenkins-server
     spec:
+      securityContext:
+            fsGroup: 1000
       containers:
-      - name: jenkins
-        image: makar007/jenkins:lts
-        ports:
-        - containerPort: 8080
+        - name: jenkins
+          image: makar007/jenkins:007
+          volumeMounts:
+            - name: jenkins-data
+              mountPath: /var/jenkins_home
+      volumes:
+        - name: jenkins-data
+          persistentVolumeClaim:
+              claimName: jenkins-pv-claim
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-master-svc
+  name: jenkins-service
 spec:
-  type: LoadBalancer
   selector:
-    app: jenkins
+    app: jenkins-server
+  type: LoadBalancer
   ports:
-    - port: 8080
+    - port: 80
       targetPort: 8080
-      #nodePort: 30080
----
-
