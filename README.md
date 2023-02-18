@@ -5,8 +5,7 @@ This project is aimed at deploying a web application on Amazon EKS in AWS using 
 ## Tools Used in the Project
  - Jenkins: Continuous Integration/Continuous Deployment (CI/CD) server used to automate building, testing, and deploying the web application.
  - EKS: Amazon Elastic Kubernetes Service (EKS) is a managed Kubernetes service used to deploy and manage the web application in a secure and scalable manner.
- -![terraform](https://user-images.githubusercontent.com/28235504/219894651-85f32269-8fb0-4d85-9395-ab5ad56c0238.png)
- Terraform: Infrastructure as Code (IaC) tool used to define, provision, and manage the underlying infrastructure required for the web application and its deployment.
+ - Terraform: Infrastructure as Code (IaC) tool used to define, provision, and manage the underlying infrastructure required for the web application and its deployment.
  - Kaniko: Open-source tool used to build Docker images within a Kubernetes pod.
  - Docker: Containerization platform used to package the web application and its dependencies into a Docker image.
  - Git: Version control system used to manage the source code of the web application and its configuration files, allowing for collaboration and change tracking among developers.
