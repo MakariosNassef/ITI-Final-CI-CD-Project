@@ -9,7 +9,10 @@ This project is aimed at deploying a web application on Amazon EKS in AWS using 
  - Kaniko: Open-source tool used to build Docker images within a Kubernetes pod.
  - Docker: Containerization platform used to package the web application and its dependencies into a Docker image.
  - Git: Version control system used to manage the source code of the web application and its configuration files, allowing for collaboration and change tracking among developers.
- - AWS: Amazon Web Services (AWS) is a cloud computing platform used to host and manage the infrastructure and resources required for the project. In this project,AWS is used to host the EKS cluster, Elastic Block Store (EBS), and provide various other resources
+ - AWS: Amazon Web Services (AWS) is a cloud computing platform used to host and manage the infrastructure and resources required for the project. 
+ - In this project,AWS is used to host the EKS cluster, Elastic Block Store (EBS).use with Amazon Elastic Compute Cloud (EC2) instances. EBS allows you to create persistent block-level storage volumes and attach them to your EC2 instances, providing durable storage that persists independently from the life of an instance.
+ ![Enable Amazon Elastic Block Storage (EBS) within my cluster](https://user-images.githubusercontent.com/28235504/219885834-8ae08bf8-0601-4507-b689-5a70d962b68e.png)
+
 
 ## Project Execution
 ## Part 1: Infrastructure Overview
@@ -27,6 +30,8 @@ This project is aimed at deploying a web application on Amazon EKS in AWS using 
 - 3- add Jenkins on the EKS cluster using the deployment file.
 
 ## Part 2: Build the CI/CD Pipeline using Jenkins.
+![image](https://user-images.githubusercontent.com/28235504/219885441-cb811e47-72cd-4e49-a01b-75654beb5c7e.png)
+![01-pipeline successfully](https://user-images.githubusercontent.com/28235504/219885458-02447146-3bf0-428b-9a82-36854811437e.png)
 
 ### This pipeline is designed to build and deploy a Tornado web application using Kubernetes on an EKS cluster. The pipeline consists of the following stages:
 
