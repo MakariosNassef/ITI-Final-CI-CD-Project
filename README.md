@@ -33,6 +33,7 @@ This project is aimed at deploying a web application on Amazon EKS in AWS using 
 ## Part 2: Build the CI/CD Pipeline using Jenkins.
 ![image](https://user-images.githubusercontent.com/28235504/219885441-cb811e47-72cd-4e49-a01b-75654beb5c7e.png)
 ![01-pipeline successfully](https://user-images.githubusercontent.com/28235504/219885458-02447146-3bf0-428b-9a82-36854811437e.png)
+![pods, ingress, lb, pods, pv, pvc ](https://user-images.githubusercontent.com/28235504/219943606-a8266030-0b1b-452a-9244-99036d41cc6a.png)
 
 ### This pipeline is designed to build and deploy a Tornado web application using Kubernetes on an EKS cluster. The pipeline consists of the following stages:
 
