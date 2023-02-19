@@ -62,7 +62,7 @@ kubectl create secret docker-registry dockercred \
  - 2 - Ingress
 
 
-### links that help me un this project 
+### links that help me on this project 
 
 Creating the Amazon EBS CSI driver IAM role for service accounts
 https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html
